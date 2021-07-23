@@ -274,11 +274,11 @@ class PyAvataaar(object):
 
     @staticmethod
     def __unique_id(prefix: str = None) -> str:
-        sub_values = [PyAvataaar.PREFIX, prefix, str(uuid.uuid4())]
+        sub_values = [PyAvataaar.PREFIX, prefix, str(uuid.uuid4())]        
         return "-".join(filter(None, sub_values))
 
     @staticmethod
-    def __template_path(path: str, enum_type: AvatarEnum) -> str:
+    def __template_path(path: str, enum_type: AvatarEnum) -> str:        
         return str(pathlib.PurePosixPath(path).joinpath(f"{enum_type.name.lower()}.svg"))
 
     @staticmethod
@@ -331,6 +331,7 @@ class PyAvataaar(object):
             clothe_type=self.clothe_type,
             clothe_graphic_type=self.clothe_graphic_type,
         )
+
         if self.simplify:
             return self.__simplify_ids(rendered_template)
         return rendered_template
